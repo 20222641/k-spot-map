@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Spot Share | 전국 성지순례 지도</title>
+    <style>
+        :root { --main-color: #ff4757; --bg-color: #f1f2f6; }
+        body { font-family: 'Noto Sans KR', sans-serif; margin: 0; background: var(--bg-color); }
+        header { background: var(--main-color); color: white; padding: 40px 20px; text-align: center; }
+        .search-area { margin: -30px auto 30px; width: 90%; max-width: 500px; }
+        #searchInput { width: 100%; padding: 15px 25px; border-radius: 30px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1); font-size: 1rem; outline: none; }
+        .container { max-width: 1100px; margin: auto; padding: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
+        .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-5px); }
+        .info { padding: 20px; flex-grow: 1; }
+        .tag-group { margin-bottom: 10px; }
+        .tag { background: #ffeaa7; color: #d63031; padding: 3px 10px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; margin-right: 5px; }
+        h3 { margin: 10px 0; color: #2d3436; }
+        .jp-guide { background: #fffaf0; border-left: 4px solid #ffa502; padding: 15px; margin-top: 15px; font-size: 0.9rem; border-radius: 0 10px 10px 0; }
+        .btn-map { display: block; text-align: center; background: #0984e3; color: white; padding: 15px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .btn-map:hover { background: #74b9ff; }
+        .no-result { text-align: center; grid-column: 1 / -1; display: none; padding: 50px; color: #636e72; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🎬 K-Spot Share</h1>
+    <p>한국 드라마·영화 성지순례 가이드 (KR/JP)</p>
+</header>
+
+<div class="search-area">
+    <input type="text" id="searchInput" placeholder="작품명, 지역, 장소를 검색하세요...">
+</div>
+
+<div class="container" id="cardList">
+    <div class="card">
+        <div class="info">
+            <div class="tag-group"><span class="tag">대전</span><span class="tag">드라마</span></div>
+            <h3>📍 미스터 션샤인: 구 충남도청</h3>
+            <p>유진 초이가 걸었던 복도와 근대 건축의 미학.</p>
+            <div class="jp-guide">
+                <strong>🇯🇵 JP Guide:</strong><br>
+                「ミスター・サンシャイン」のロケ地。1930年代の建築様式が残り、レトロな写真が撮れます。
+            </div>
+        </div>
+        <a href="https://www.google.com/maps/search/구+충남도청" target="_blank" class="btn-map">구글 지도 열기</a>
+    </div>
+
+    <div class="card">
+        <div class="info">
+            <div class="tag-group"><span class="tag">강원</span><span class="tag">드라마</span></div>
+            <h3>📍 도깨비: 주문진 방사제</h3>
+            <p>공유와 김고은이 꽃다발을 주고받은 그 바닷가.</p>
+            <div class="jp-guide">
+                <strong>🇯🇵 JP Guide:</strong><br>
+                「トッケビ」の名シーンが撮影された場所。青い海を背景にドラマの気分を味わえます。
+            </div>
+        </div>
+        <a href="https://www.google.com/maps/search/주문진+방사제" target="_blank" class="btn-map">구글 지도 열기</a>
+    </div>
+
+    <div id="noResult" class="no-result">검색 결과가 없습니다. (検索結果がありません)</div>
+</div>
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const cards = document.querySelectorAll('.card');
+    const noResult = document.getElementById('noResult');
+
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        let hasVisibleCard = false;
+
+        cards.forEach(card => {
+            const content = card.innerText.toLowerCase();
+            if (content.includes(query)) {
+                card.style.display = "flex";
+                hasVisibleCard = true;
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+        noResult.style.display = hasVisibleCard ? "none" : "block";
+    });
+</script>
+
+</body>
+</html>
