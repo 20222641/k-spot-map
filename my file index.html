@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Scene Share: 전국 성지순례 지도</title>
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; margin: 0; padding: 0; background: #fafafa; }
+        header { background: #ff4757; color: white; padding: 25px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .search-box { margin: -25px auto 30px; width: 80%; max-width: 500px; display: flex; }
+        input { width: 100%; padding: 15px; border-radius: 30px; border: 1px solid #ddd; box-shadow: 0 4px 6px rgba(0,0,0,0.05); outline: none; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .info { padding: 15px; }
+        .tag { background: #f1f2f6; color: #57606f; padding: 3px 8px; border-radius: 5px; font-size: 0.75rem; margin-right: 5px; }
+        .jp-guide { background: #fffaf0; border-left: 3px solid #ffa502; padding: 10px; margin-top: 10px; font-size: 0.85rem; color: #333; }
+        .btn-map { display: block; text-align: center; background: #1e90ff; color: white; padding: 10px; text-decoration: none; border-radius: 5px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🎬 K-Scene Share</h1>
+    <p>한국의 모든 촬영지, 팬들의 기록으로 완성되는 지도</p>
+</header>
+
+<div class="search-box">
+    <input type="text" placeholder="작품명이나 지역을 검색하세요 (ex. 더 글로리, 강릉)">
+</div>
+
+<div class="container">
+    <div class="card">
+        <div class="info">
+            <span class="tag">서울/경기</span><span class="tag">드라마</span>
+            <h3>📍 더 글로리: 바둑공원</h3>
+            <p>문동은과 하도영의 긴장감이 느껴지는 장소입니다.</p>
+            <div class="jp-guide">
+                <strong>🇯🇵 JP Guide:</strong><br>
+                「ザ・グローリー」の囲碁公園。静かな雰囲気の中でドラマのシーンを再現できます。
+            </div>
+            <a href="https://www.google.com/maps" target="_blank" class="btn-map">지도에서 보기</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="info">
+            <span class="tag">강원</span><span class="tag">드라마</span>
+            <h3>📍 도깨비: 영진해변 방사제</h3>
+            <p>공유와 김고은이 처음 꽃을 주고받던 그 바닷가입니다.</p>
+            <div class="jp-guide">
+                <strong>🇯🇵 JP Guide:</strong><br>
+                「トッケビ」の撮影地。青い海を背景に、赤いマフラーを巻いて写真を撮るのが人気です。
+            </div>
+            <a href="https://www.google.com/maps" target="_blank" class="btn-map">지도에서 보기</a>
+        </div>
+    </div>
+</div>
+
+<div style="text-align: center; margin: 50px;">
+    <p>새로운 성지를 알고 계신가요?</p>
+    <a href="본인의_구글폼_주소" style="color: #ff4757; font-weight: bold;">[ 📸 나도 성지 제보하기 ]</a>
+</div>
+
+</body>
+</html>
